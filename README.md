@@ -16,6 +16,8 @@
 |------|----|-------|
 |body|text||
 |image|string||
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 |------|timestamps|null: false|
 
 ### Association
