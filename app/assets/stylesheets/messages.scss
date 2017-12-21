@@ -1,3 +1,52 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#info {
+  background-color: #38AEF0;
+  width: 100vw;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  p {
+    color: white;
+  }
+}
+
+#contents {
+  height: 100vw;
+  width: 100vw;
+
+  .menu {
+  background-color: #2f3e51;
+  height: 100vw;
+  width: 300px;
+  float: left;
+    .menu__accuunt {
+      background-color: #253141;
+      height: 90px;
+      font-style: bold;
+      font-size: 16px;
+    }
+    .menu__groups {
+      background-color: #2f3e51;
+      height: calc(100vw - 90px);
+    }
+
+  }
+
+  .chatspace {
+  width: calc(100vw - 300px);
+  height: 100vw;
+  float: left;
+    .chatspace__edit {
+      height: 90px;
+    }
+
+    .chatspace__messages {
+      height: calc(100vw - 180px);
+    }
+
+    .chatspace__input {
+      background-color: #AAAAAA;
+      height: 90px;
+    }
+  }
+
+}

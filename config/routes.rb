@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'chatspacet' => 'messages#index'
+  get 'chatspace' => 'messages#index'
 end
