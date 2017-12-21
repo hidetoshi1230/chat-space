@@ -5,10 +5,20 @@
 
   .menu
 
-    .menu__accuunt
+    .menu__account
+      %h3 NAME
+      %ul
+        %li
+          = link_to 'リンク' do
+            %i.fa.fa-pencil-square-o
+        %li
+          = link_to 'リンク' do
+            %i.fa.fa-cog
 
     .menu__groups
-
+      = link_to '', 'リンク'
+      .group__name サンプルグループ
+      .group__message ありません
 
   .chatspace
 

@@ -1,6 +1,14 @@
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  width:100%
+}
+
 #info {
   background-color: #38AEF0;
-  width: 100vw;
+  width: 100%;
   height: 30px;
   text-align: center;
   line-height: 30px;
@@ -10,37 +18,69 @@
 }
 
 #contents {
-  height: 100vw;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
   .menu {
   background-color: #2f3e51;
-  height: 100vw;
+  height: 100%;
   width: 300px;
   float: left;
-    .menu__accuunt {
+    .menu__account {
       background-color: #253141;
       height: 90px;
-      font-style: bold;
-      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      h3 {
+        font-size: 16px;
+        font-style: bold;
+        color: #FFFFFF;
+        float: left;
+        line-height: 90px;
+      }
+      ul {
+        float: right;
+        line-height: 90px;
+      }
+      li {
+        float: left;
+        i {
+          color: white;
+          margin-left: 10px;
+        }
+      }
+
     }
     .menu__groups {
       background-color: #2f3e51;
-      height: calc(100vw - 90px);
+      height: calc(100% - 90px);
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      .group__name {
+        color: #FFFFFF;
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .group__message {
+        color: #FFFFFF;
+        font-size: 11px;
+        margin-bottom: 40px;
+      }
     }
 
   }
 
   .chatspace {
-  width: calc(100vw - 300px);
-  height: 100vw;
+  width: calc(100% - 300px);
+  height: 100%;
   float: left;
     .chatspace__edit {
       height: 90px;
     }
 
     .chatspace__messages {
-      height: calc(100vw - 180px);
+      height: calc(100% - 180px);
     }
 
     .chatspace__input {
