@@ -34,13 +34,13 @@
         .message__text メッセージはありません
 
     .chatspace__input
-      %form{:action => "", :method => "post"}
+      %form{action: "", method: "post"}
 
-        %input.message_input{:type => "text", :placeholder => "type amessage", :name => "message", :border => "none"}
+        %input.message_input{type: "text", placeholder: "type amessage", name: "message", border: "none"}
 
         .input__image
           %label
             %i.fa.fa-picture-o.fa-1x
-            %input{:type => "file", :name => "file", :style => "display:none"}
+            %input{type: "file", name: "file", style: "display:none"}
 
-        %input.message_submit{:type => "submit", :value => "Send"}
+        %input.message_submit{type: "submit", value: "Send"}

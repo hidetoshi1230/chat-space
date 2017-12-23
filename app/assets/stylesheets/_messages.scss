@@ -24,7 +24,7 @@ body{
   height: 100%;
   width: 300px;
   float: left;
-    .menu__account {
+    &__account {
       background-color: #253141;
       height: 120px;
       padding-left: 20px;
@@ -49,7 +49,7 @@ body{
       }
 
     }
-    .menu__groups {
+    &__groups {
       background-color: #2f3e51;
       height: calc(100% - 120px);
       padding-top: 20px;
@@ -73,7 +73,7 @@ body{
   width: calc(100% - 300px);
   height: 100%;
   float: left;
-    .chatspace__name {
+    &__name {
       height: 120px;
       padding-left: 40px;
       float: left;
@@ -88,7 +88,7 @@ body{
         color: #999999;
       }
     }
-    .chatspace__edit {
+    &__edit {
       float: right;
       border: thin solid #38AEF0;
       height: 40px;
@@ -100,7 +100,7 @@ body{
       margin-top: 28px;
     }
 
-    .chatspace__messages {
+    &__messages {
       height: calc(100% - 120px - 90px);
       padding-left: 40px;
       padding-right: 40px;
@@ -130,8 +130,7 @@ body{
         }
       }
     }
-
-    .chatspace__input {
+    &__input {
       background-color: #AAAAAA;
       height: 90px;
       padding-left: 40px;
@@ -165,5 +164,4 @@ body{
       }
     }
   }
-
 }
