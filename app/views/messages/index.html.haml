@@ -15,8 +15,8 @@
             %i.fa.fa-cog
 
     .menu__groups
-      .group__name サンプルグループ
-      .group__message メッセージはありません
+      .groups__name サンプルグループ
+      .groups__message メッセージはありません
 
   .chatspace
 
@@ -36,11 +36,11 @@
     .chatspace__input
       %form{action: "", method: "post"}
 
-        %input.message_input{type: "text", placeholder: "type amessage", name: "message", border: "none"}
+        %input.input__message{type: "text", placeholder: "type amessage", name: "message", border: "none"}
 
         .input__image
           %label
             %i.fa.fa-picture-o.fa-1x
             %input{type: "file", name: "file", style: "display:none"}
 
-        %input.message_submit{type: "submit", value: "Send"}
+        %input.input__submit{type: "submit", value: "Send"}
