@@ -1,5 +1,4 @@
-#info
-  %p チャットグループが作成されました。
+#info チャットグループが作成されました。
 
 #contents
 
@@ -16,15 +15,32 @@
             %i.fa.fa-cog
 
     .menu__groups
-      = link_to '', 'リンク'
       .group__name サンプルグループ
-      .group__message ありません
+      .group__message メッセージはありません
 
   .chatspace
 
-    .chatspace__edit
+    .chatspace__name
+      .name__group サンプルグループ
+      .name__member サンプル
+
+    = link_to '', 'リンク'
+    .chatspace__edit Edit
 
     .chatspace__messages
+      .message
+        .message__name サンプル
+        .message__date 2000/12/30 06:00:00
+        .message__text メッセージはありません
 
     .chatspace__input
+      %form{:action => "", :method => "post"}
 
+        %input.message_input{:type => "text", :placeholder => "type amessage", :name => "message", :border => "none"}
+
+        .input__image
+          %label
+            %i.fa.fa-picture-o.fa-1x
+            %input{:type => "file", :name => "file", :style => "display:none"}
+
+        %input.message_submit{:type => "submit", :value => "Send"}
