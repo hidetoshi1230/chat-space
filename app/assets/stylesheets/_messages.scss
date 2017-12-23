@@ -1,0 +1,167 @@
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  width:100%
+}
+
+#info {
+  background-color: #38AEF0;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#contents {
+  height: 100%;
+  width: 100%;
+
+  .menu {
+  background-color: #2f3e51;
+  height: 100%;
+  width: 300px;
+  float: left;
+    &__account {
+      background-color: #253141;
+      height: 120px;
+      padding-left: 20px;
+      padding-right: 20px;
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #FFFFFF;
+        float: left;
+        line-height: 120px;
+      }
+      ul {
+        float: right;
+        line-height: 120px;
+      }
+      li {
+        float: left;
+        i {
+          color: white;
+          margin-left: 10px;
+        }
+      }
+
+    }
+    &__groups {
+      background-color: #2f3e51;
+      height: calc(100% - 120px);
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      &--name {
+        color: #FFFFFF;
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &--message {
+        color: #FFFFFF;
+        font-size: 11px;
+        margin-bottom: 40px;
+      }
+    }
+
+  }
+
+  .chatspace {
+  width: calc(100% - 300px);
+  height: 100%;
+  float: left;
+    &__name {
+      height: 120px;
+      padding-left: 40px;
+      float: left;
+      &--group {
+        padding-top: 35px;
+        font-size: 20px;
+        color: #333333;
+      }
+      &--member {
+        padding-top: 15px;
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    &__edit {
+      float: right;
+      border: thin solid #38AEF0;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: #38AEF0;
+      margin-right: 40px;
+      margin-top: 28px;
+    }
+
+    &__messages {
+      height: calc(100% - 120px - 90px);
+      padding-left: 40px;
+      padding-right: 40px;
+      clear: both;
+      border-top: thin solid #eeeeee;
+      padding-top: 46px;
+      .message {
+        padding-bottom: 40px;
+        &--name {
+          float:left;
+          font-size: 16px;
+          font-weight: bold;
+          color: #434A54;
+        }
+        &--date {
+          float: left;
+          margin-left: 10px;
+          padding-top: 4px;
+          font-size: 12px;
+          color: #999999;
+        }
+        &--text {
+          clear: both;
+          font-size: 14px;
+          color: #434A54;
+          padding-top: 10px;
+        }
+      }
+    }
+    &__input {
+      background-color: #AAAAAA;
+      height: 90px;
+      padding-left: 40px;
+      padding-right: 40px;
+      &--message {
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+        margin-top: 20px;
+        padding: 0 10px;
+        border: none;
+      }
+      &--image {
+        float: left;
+        background-color: white;
+        height: 50px;
+        margin-top: 20px;
+        padding-right: 10px;
+        label {
+          font-size: 20px;
+          line-height: 50px;
+        }
+      }
+      &--submit {
+        float: right;
+        height: 50px;
+        width: 90px;
+        margin-top: 20px;
+        background-color: #38AEF0;
+        color: white;
+      }
+    }
+  }
+}

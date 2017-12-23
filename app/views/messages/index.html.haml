@@ -1,0 +1,46 @@
+#info チャットグループが作成されました。
+
+#contents
+
+  .menu
+
+    .menu__account
+      %h3 NAME
+      %ul
+        %li
+          = link_to 'リンク' do
+            %i.fa.fa-pencil-square-o
+        %li
+          = link_to 'リンク' do
+            %i.fa.fa-cog
+
+    .menu__groups
+      .menu__groups--name サンプルグループ
+      .menu__groups--message メッセージはありません
+
+  .chatspace
+
+    .chatspace__name
+      .chatspace__name--group サンプルグループ
+      .chatspace__name--member サンプル
+
+    = link_to '', 'リンク'
+    .chatspace__edit Edit
+
+    .chatspace__messages
+      .message
+        .message--name サンプル
+        .message--date 2000/12/30 06:00:00
+        .message--text メッセージはありません
+
+    .chatspace__input
+      %form{action: "", method: "post"}
+
+        %input.chatspace__input--message{type: "text", placeholder: "type amessage", name: "message", border: "none"}
+
+        .chatspace__input--image
+          %label
+            %i.fa.fa-picture-o.fa-1x
+            %input{type: "file", name: "file", style: "display:none"}
+
+        %input.chatspace__input--submit{type: "submit", value: "Send"}
