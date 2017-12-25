@@ -7,7 +7,7 @@
         = current_user.name
       %ul
         %li
-          = link_to 'リンク' do
+          = link_to new_group_path do
             %i.fa.fa-pencil-square-o
         %li
           = link_to edit_user_path do
@@ -23,7 +23,7 @@
       .chatspace__name--group サンプルグループ
       .chatspace__name--member サンプル
 
-    = link_to 'リンク' do
+    = link_to edit_group_path do
       .chatspace__edit Edit
 
     .chatspace__messages
