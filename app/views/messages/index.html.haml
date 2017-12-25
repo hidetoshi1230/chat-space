@@ -1,17 +1,16 @@
-#info チャットグループが作成されました。
-
 #contents
 
   .menu
 
     .menu__account
-      %h3 NAME
+      %h3 
+        = current_user.name
       %ul
         %li
           = link_to 'リンク' do
             %i.fa.fa-pencil-square-o
         %li
-          = link_to 'リンク' do
+          = link_to edit_user_path do
             %i.fa.fa-cog
 
     .menu__groups
@@ -24,8 +23,8 @@
       .chatspace__name--group サンプルグループ
       .chatspace__name--member サンプル
 
-    = link_to '', 'リンク'
-    .chatspace__edit Edit
+    = link_to 'リンク' do
+      .chatspace__edit Edit
 
     .chatspace__messages
       .message
