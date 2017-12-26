@@ -14,8 +14,10 @@
             %i.fa.fa-cog
 
     .menu__groups
-      .menu__groups--name サンプルグループ
-      .menu__groups--message メッセージはありません
+      - @groups.each do |group|
+        .menu__groups--name
+          = group.group_name
+        .menu__groups--message メッセージはありません
 
   .chatspace
 
