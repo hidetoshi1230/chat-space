@@ -9,10 +9,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @group  = Group.find(params[:group_id])
+    @groups = current_user.groups
+    @messages = @group.messages.order("created_at ASC")
     if @message.save
       redirect_to group_messages_path
     else
-      redirect_to group_messages_path, alert: "メッセージを入力してください。"
+      flash.now[:alert] = "メッセージを入力してください。"
+      render :index
     end
   end
 

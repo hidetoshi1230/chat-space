@@ -10,7 +10,7 @@
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
         %li
-          = link_to edit_user_path do
+          = link_to edit_user_path(current_user.id) do
             %i.fa.fa-cog
 
     .menu__groups
@@ -23,7 +23,7 @@
   .chatspace
 
     .chatspace__name
-      .chatspace__name--group 
+      .chatspace__name--group
         = @group.group_name
       .chatspace__name--member サンプル
 
