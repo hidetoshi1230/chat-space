@@ -1,0 +1,52 @@
+#contents
+
+  .menu
+
+    .menu__account
+      %h3
+        = current_user.name
+      %ul
+        %li
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+        %li
+          = link_to edit_user_path do
+            %i.fa.fa-cog
+
+    .menu__groups
+      - @groups.each do |group|
+        = link_to group_messages_path(group.id) do
+          .menu__groups--name
+            = group.group_name
+          .menu__groups--message sample
+
+  .chatspace
+
+    .chatspace__name
+      .chatspace__name--group 
+        = @group.group_name
+      .chatspace__name--member サンプル
+
+    = link_to edit_group_path(@group) do
+      .chatspace__edit Edit
+
+    .chatspace__messages
+      - @messages.each do |message|
+        .message
+          .message--name
+            =message.user.name
+          .message--date
+            = message.created_at
+          .message--text
+            - if message.image?
+              = image_tag message.image.to_s
+            - else
+              = message.body
+
+    .chatspace__input
+      = form_for [@group, @message] do |f| 
+        = f.text_field :body, placeholder:"type a message", class: "chatspace__input--message"
+        = f.label :image, class: "chatspace__input--image" do
+          %i.fa.fa-picture-o.fa-1x
+          = f.file_field :image, style: "display:none"
+        = f.submit "Send", class: "chatspace__input--submit"

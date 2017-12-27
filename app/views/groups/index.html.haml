@@ -3,7 +3,7 @@
   .menu
 
     .menu__account
-      %h3 
+      %h3
         = current_user.name
       %ul
         %li
@@ -15,33 +15,7 @@
 
     .menu__groups
       - @groups.each do |group|
-        .menu__groups--name
-          = group.group_name
-        .menu__groups--message メッセージはありません
-
-  .chatspace
-
-    .chatspace__name
-      .chatspace__name--group サンプルグループ
-      .chatspace__name--member サンプル
-
-    / = link_to edit_group_path do
-    .chatspace__edit Edit
-
-    .chatspace__messages
-      .message
-        .message--name サンプル
-        .message--date 2000/12/30 06:00:00
-        .message--text メッセージはありません
-
-    .chatspace__input
-      %form{action: "", method: "post"}
-
-        %input.chatspace__input--message{type: "text", placeholder: "type amessage", name: "message", border: "none"}
-
-        .chatspace__input--image
-          %label
-            %i.fa.fa-picture-o.fa-1x
-            %input{type: "file", name: "file", style: "display:none"}
-
-        %input.chatspace__input--submit{type: "submit", value: "Send"}
+        = link_to group_messages_path(group.id) do
+          .menu__groups--name
+            = group.group_name
+          .menu__groups--message メッセージはありません
