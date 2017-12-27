@@ -29,6 +29,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = current_user.groups
   end
 
   private
