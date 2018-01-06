@@ -1,15 +1,23 @@
 $(function(){
   function buildHTML(message){
-    var html = `.message
-                  .message--name
-                    = ${ @message.user.name }
-                  .message--date
-                    = ${ @message.created_at }
-                  .message--text
-                    - if message.image?
-                      = image_tag ${ @message.image.to_s }
-                    - else
-                      = ${ @message.body }`
+    var addimage = "";
+    if (message.image.url) {
+      addimage = `<img class = "image_size", src="${ message.image.url }">`;
+    }
+    var html = `<div class="message">
+                  <div class="message--name">
+                    ${ message.name }
+                  </div>
+                  <div class="message--date">
+                    ${ message.date }
+                  </div>
+                  <div class="message--text">
+                    ${ message.body }
+                  </div>
+                  <div class="message--image">
+                    ${ addimage }
+                  </div>
+                </div>`
     return html;
   }
   $('#new_message').on('submit', function(e){
@@ -26,11 +34,13 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chatspace__messages').append(html)
-      $('.chatspace__input--message').val('')
+      $('.chatspace__messages').append(html);
+      $('.chatspace__messages').animate({scrollTop: $('.chatspace__messages')[0].scrollHeight}, 'fast');
+      $('.chatspace__input--message').val('');
     })
     .fail(function(){
       alert('error');
     })
+    return false;
   })
 });
