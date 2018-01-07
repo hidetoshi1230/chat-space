@@ -28,39 +28,41 @@ $(function() {
   }
 
   $(".chat-group-form__input.search").on("keyup", function() {
+    var preWord = ""
     var input = $(".chat-group-form__input.search").val();
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
-    .done(function(users) {
-      $(".user_search_result").empty();
-      if (users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        appendNoUser("一致するユーザーはいません");
-      }
-    })
-    .fail(function() {
-      alert('ユーザー検索に失敗しました');
-    })
+    if (input != preWord) {
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
+      .done(function(users) {
+        $(".user_search_result").empty();
+        if (users.length !== 0) {
+          users.forEach(function(user){
+            appendUser(user);
+          });
+        }
+        else {
+          appendNoUser("一致するユーザーはいません");
+        }
+      })
+      .fail(function() {
+        alert('ユーザー検索に失敗しました');
+      })
+    }
+    preWord = input;
   });
 
   $(".new_group").on('click', ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
-    console.log('クリックしました！');
-    console.log(this)
     $(this).parent().remove();
     var user_name = $(this).data("user-name")
     var user_id = $(this).data("user-id")
     appendChatMember(user_name, user_id);
   });
 
-  $(".new_group").on('click', "user-search-remove.chat-group-user__btn chat-group-user__btn--remove.js-remove-btn", function(){
+  $(".new_group").on('click', ".user-search-remove", function(){
     $(this).parent().remove();
   });
 });
