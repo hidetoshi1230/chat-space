@@ -5,6 +5,11 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    respond_to do |format|
+      format.html
+      format.json
+    end
+    @users = @group.users
   end
 
   def create

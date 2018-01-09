@@ -4,7 +4,7 @@ $(function(){
     if (message.image.url) {
       addimage = `<img class = "image_size", src="${ message.image.url }">`;
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${ message.id }">
                   <div class="message--name">
                     ${ message.name }
                   </div>
@@ -20,6 +20,7 @@ $(function(){
                 </div>`
     return html;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -43,4 +44,28 @@ $(function(){
     })
     return false;
   })
+
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: location.href,
+        dataType: 'json',
+      })
+      .done(function(data) {
+        var id = $('.message').last().data('message-id');
+        data.forEach(function(message){
+          if (message.id > id ) {
+          var html = buildHTML(message);
+          $('.chatspace__messages').append(html);
+          }
+        });
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      })
+    }
+    else {
+      clearInterval(interval);
+    }
+  }, 5000);
 });
