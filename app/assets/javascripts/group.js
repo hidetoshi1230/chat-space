@@ -55,14 +55,14 @@ $(function() {
     preWord = input;
   });
 
-  $(".new_group").on('click', ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
+  $(".user_search_result").on('click', ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
     $(this).parent().remove();
     var user_name = $(this).data("user-name")
     var user_id = $(this).data("user-id")
     appendChatMember(user_name, user_id);
   });
 
-  $(".new_group").on('click', ".user-search-remove", function(){
+  $(".chat-group-users").on('click', ".user-search-remove", function(){
     $(this).parent().remove();
   });
 });
