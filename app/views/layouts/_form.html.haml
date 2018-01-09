@@ -3,11 +3,11 @@
 = form_for @group do |f| 
   - if @group.errors.any?
     .chat-group-form__errors
-      %h2 1件のエラーが発生しました。
+      %h2 #{@group.errors.full_messages.length}件のエラーが発生しました。
       %ul
         - @group.errors.full_messages.each do |message| 
           %li
-            = "グループ名を入力してください。"
+            = message
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :group_name, "グループ名", class: "chat-group-form__label"
@@ -21,12 +21,17 @@
         %input{ name: "keyword", placeholder: "追加したいユーザー名を入力してください", type: "text", value:"", class: "chat-group-form__input search"}
       .user_search_result
 
-
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :user_name, "チャットメンバー", class: "chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-users
+        .chat-group-user.clearfix.js-chat-member#chat-group-user-8
+          #p.chat-group-user__name
+            = current_user.name
+          .chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+            削除
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

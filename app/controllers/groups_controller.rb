@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    binding.pry
     @group = Group.new(group_params)
     if @group.save
       redirect_to root_path, notice: "グループを作成しました。"
@@ -34,7 +35,11 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:group_name, :user_ids => [])
+    tmp_params = params.require(:group).permit(:group_name, :user_ids => [])
+    if tmp_params[:user_ids].nil?
+      tmp_params[:user_ids] = []
+    end
+    tmp_params[:user_ids] << "#{current_user.id}"
+    return tmp_params
   end
-
 end
