@@ -49,14 +49,12 @@ $(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       $.ajax({
         url: location.href,
+        data: { last_id: $('.message').last().data('message-id')},
         dataType: 'json',
       })
       .done(function(data) {
-        var id = $('.message').last().data('message-id');
-        if (data.id > id ) {
         var html = buildHTML(data);
         $('.chatspace__messages').append(html);
-        }
       })
       .fail(function() {
         alert('自動更新に失敗しました');

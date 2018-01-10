@@ -5,10 +5,13 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @last_message = @messages.last
-    respond_to do |format|
-      format.html
-      format.json
+    @messages.each do |message|
+      if message.id > params(:last_id)
+        respond_to do |format|
+          format.html
+          format.json
+        end
+      end
     end
     @users = @group.users
   end

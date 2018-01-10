@@ -1,5 +1,5 @@
-json.name     @last_message.user.name
-json.date     @last_message.created_at.strftime("%Y-%m-%d %H:%M:%S")
-json.body     @last_message.body
-json.image    @last_message.image
-json.id       @last_message.id
+json.name     message.user.name
+json.date     message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+json.body     message.body
+json.image    message.image
+json.id       message.id
