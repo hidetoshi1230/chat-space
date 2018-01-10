@@ -52,13 +52,12 @@ $(function(){
         dataType: 'json',
       })
       .done(function(data) {
+        console.log(data)
         var id = $('.message').last().data('message-id');
-        data.forEach(function(message){
-          if (message.id > id ) {
-          var html = buildHTML(message);
-          $('.chatspace__messages').append(html);
-          }
-        });
+        if (data.id > id ) {
+        var html = buildHTML(data);
+        $('.chatspace__messages').append(html);
+        }
       })
       .fail(function() {
         alert('自動更新に失敗しました');
