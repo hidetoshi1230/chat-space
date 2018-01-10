@@ -47,14 +47,17 @@ $(function(){
 
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var id = $('.message').last().data('message-id')
       $.ajax({
         url: location.href,
-        data: { last_id: $('.message').last().data('message-id')},
+        data: { id: id },
         dataType: 'json',
       })
       .done(function(data) {
-        var html = buildHTML(data);
-        $('.chatspace__messages').append(html);
+        data.forEach(function(message){
+          var html = buildHTML(message);
+          $('.chatspace__messages').append(html);
+        });
       })
       .fail(function() {
         alert('自動更新に失敗しました');
