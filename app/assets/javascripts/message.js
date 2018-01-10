@@ -52,7 +52,6 @@ $(function(){
         dataType: 'json',
       })
       .done(function(data) {
-        console.log(data)
         var id = $('.message').last().data('message-id');
         if (data.id > id ) {
         var html = buildHTML(data);
