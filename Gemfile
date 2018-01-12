@@ -63,3 +63,7 @@ gem 'devise'
 gem "pry-rails"
 gem 'carrierwave'
 gem 'rmagick'
+
+group :production do
+  gem 'unicorn'
+end
