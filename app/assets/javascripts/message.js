@@ -2,22 +2,22 @@ $(function(){
   function buildHTML(message){
     var addimage = "";
     if (message.image.url) {
-      addimage = `<img class = "image_size", src="${ message.image.url }">`;
+      addimage = '<img class = "image_size", src="' + message.image.url + '">';
     }
-    var html = `<div class="message" data-message-id="${ message.id }">
-                  <div class="message--name">
-                    ${ message.name }
-                  </div>
-                  <div class="message--date">
-                    ${ message.date }
-                  </div>
-                  <div class="message--text">
-                    ${ message.body }
-                  </div>
-                  <div class="message--image">
-                    ${ addimage }
-                  </div>
-                </div>`
+    var html = '<div class="message" data-message-id="' + message.id + '">'
+               + '<div class="message--name">'
+               + message.name
+               + '</div>'
+               + '<div class="message--date">'
+               + message.date
+               + '</div>'
+               + '<div class="message--text">'
+               + message.body
+               + '</div>'
+               + '<div class="message--image">'
+               + addimage
+               + '</div>'
+               + '</div>'
     return html;
   }
 
